@@ -5,8 +5,8 @@ import 'addproductlist_item_model.dart';
 /// and is typically used to hold data that is passed between different parts of the application.
 class AddProductModel {
   Rx<List<AddproductlistItemModel>> addproductlistItemList = Rx([
-    AddproductlistItemModel(image: ImageConstant.imgRectangle8088.obs),
-    AddproductlistItemModel(image: ImageConstant.imgRectangle8089.obs)
+    // AddproductlistItemModel(image: ImageConstant.imgRectangle8088.obs),
+    // AddproductlistItemModel(image: ImageConstant.imgRectangle8089.obs)
   ]);
 
   Rx<List<SelectionPopupModel>> dropdownItemList = Rx([

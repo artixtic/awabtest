@@ -1,6 +1,7 @@
 import 'package:awabtest/core/app_export.dart';
 import 'package:awabtest/presentation/add_product_screen/models/add_product_model.dart';
 import 'package:flutter/material.dart';
+import 'package:get_storage/get_storage.dart';
 
 /// A controller class for the AddProductScreen.
 ///
@@ -17,6 +18,7 @@ class AddProductController extends GetxController {
 
   SelectionPopupModel? selectedDropDownValue;
 
+  final box = GetStorage();
   @override
   void onClose() {
     super.onClose();

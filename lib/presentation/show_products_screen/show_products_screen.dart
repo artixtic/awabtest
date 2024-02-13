@@ -32,13 +32,13 @@ class ShowProductsScreen extends GetWidget<ShowProductsController> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                "lbl_categories".tr,
-                style: CustomTextStyles.bodyLargeBluegray800,
-              ),
-              Spacer(),
-              _buildAddProductList(),
-              Spacer(),
+              // Text(
+              //   "lbl_categories".tr,
+              //   style: CustomTextStyles.bodyLargeBluegray800,
+              // ),
+              // Spacer(),
+              // _buildAddProductList(),
+              // Spacer(),
               Padding(
                 padding: EdgeInsets.only(left: 4.h),
                 child: Row(
@@ -65,8 +65,8 @@ class ShowProductsScreen extends GetWidget<ShowProductsController> {
                 ),
               ),
               SizedBox(height: 20.v),
-              _buildUserProfile(),
-              SizedBox(height: 84.v),
+              Expanded(child: _buildUserProfile()),
+              // SizedBox(height: 84.v),
             ],
           ),
         ),
@@ -117,30 +117,29 @@ class ShowProductsScreen extends GetWidget<ShowProductsController> {
   /// Section Widget
   Widget _buildUserProfile() {
     return Padding(
-      padding: EdgeInsets.only(right: 137.h),
-      child: Obx(
-        () => ListView.separated(
-          physics: NeverScrollableScrollPhysics(),
-          shrinkWrap: true,
-          separatorBuilder: (
-            context,
-            index,
-          ) {
-            return SizedBox(
-              height: 10.v,
-            );
-          },
-          itemCount: controller
-              .showProductsModelObj.value.userprofileItemList.value.length,
-          itemBuilder: (context, index) {
-            UserprofileItemModel model = controller
-                .showProductsModelObj.value.userprofileItemList.value[index];
-            return UserprofileItemWidget(
-              model,
-            );
-          },
-        ),
-      ),
-    );
+        padding: EdgeInsets.all(10),
+        child: GetBuilder<ShowProductsController>(builder: (logic) {
+          return ListView.separated(
+            // physics: NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            separatorBuilder: (
+              context,
+              index,
+            ) {
+              return SizedBox(
+                height: 10.v,
+              );
+            },
+            itemCount: controller
+                .showProductsModelObj.value.userprofileItemList.value.length,
+            itemBuilder: (context, index) {
+              UserprofileItemModel model = controller
+                  .showProductsModelObj.value.userprofileItemList.value[index];
+              return UserprofileItemWidget(
+                model,
+              );
+            },
+          );
+        }));
   }
 }

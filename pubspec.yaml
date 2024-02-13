@@ -41,6 +41,9 @@ dependencies:
   cached_network_image: ^3.3.0
   flutter_svg: ^2.0.9
   intl: ^0.19.0
+  image_picker:
+  get_storage: ^2.1.1
+  bot_toast:
 
 dev_dependencies:
   flutter_test:

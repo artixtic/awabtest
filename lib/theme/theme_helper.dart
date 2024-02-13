@@ -1,5 +1,5 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
+
 import '../../core/app_export.dart';
 
 /// Helper class for managing themes and colors.
@@ -84,14 +84,14 @@ class TextThemes {
           fontWeight: FontWeight.w400,
         ),
         bodyMedium: TextStyle(
-          color: colorScheme.onPrimaryContainer,
+          color: Colors.black,
           fontSize: 14.fSize,
           fontFamily: 'ABeeZee',
           fontWeight: FontWeight.w400,
         ),
         bodySmall: TextStyle(
-          color: appTheme.gray500,
-          fontSize: 10.fSize,
+          color: appTheme.black900,
+          fontSize: 15.fSize,
           fontFamily: 'ABeeZee',
           fontWeight: FontWeight.w400,
         ),

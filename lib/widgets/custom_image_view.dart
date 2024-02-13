@@ -133,13 +133,21 @@ class CustomImageView extends StatelessWidget {
           );
         case ImageType.png:
         default:
-          return Image.asset(
-            imagePath!,
-            height: height,
-            width: width,
-            fit: fit ?? BoxFit.cover,
-            color: color,
-          );
+          return imagePath!.contains("assets")
+              ? Image.asset(
+                  imagePath!,
+                  height: height,
+                  width: width,
+                  fit: fit ?? BoxFit.cover,
+                  color: color,
+                )
+              : Image.file(
+                  File(imagePath!),
+                  height: height,
+                  width: width,
+                  fit: fit ?? BoxFit.cover,
+                  color: color,
+                );
       }
     }
     return SizedBox();

@@ -1,6 +1,8 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get_storage/get_storage.dart';
 
 import 'core/app_export.dart';
 
@@ -8,7 +10,8 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
-  ]).then((value) {
+  ]).then((value) async {
+    await GetStorage.init();
     Logger.init(kReleaseMode ? LogMode.live : LogMode.debug);
     runApp(MyApp());
   });
@@ -23,10 +26,12 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: theme,
         translations: AppLocalization(),
+        builder: BotToastInit(),
         locale: Get.deviceLocale, //for setting localization strings
         fallbackLocale: Locale('en', 'US'),
         title: 'awabtest',
         initialBinding: InitialBindings(),
+        navigatorObservers: [BotToastNavigatorObserver()],
         initialRoute: AppRoutes.initialRoute,
         getPages: AppRoutes.pages,
       );

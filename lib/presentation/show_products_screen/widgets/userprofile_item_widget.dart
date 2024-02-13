@@ -20,7 +20,7 @@ class UserprofileItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Obx(
           () => CustomImageView(
@@ -31,6 +31,9 @@ class UserprofileItemWidget extends StatelessWidget {
               12.h,
             ),
           ),
+        ),
+        SizedBox(
+          width: 20,
         ),
         Padding(
           padding: EdgeInsets.only(top: 8.v),
@@ -78,9 +81,11 @@ class UserprofileItemWidget extends StatelessWidget {
                   borderRadius: BorderRadiusStyle.roundedBorder8,
                 ),
                 child: Obx(
-                  () => Text(
-                    userprofileItemModelObj.storeName!.value,
-                    style: theme.textTheme.bodySmall,
+                  () => Center(
+                    child: Text(
+                      userprofileItemModelObj.storeName!.value,
+                      style: theme.textTheme.bodySmall,
+                    ),
                   ),
                 ),
               ),
